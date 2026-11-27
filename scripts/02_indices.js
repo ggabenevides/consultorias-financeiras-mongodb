@@ -4,3 +4,12 @@
 
 db = db.getSiblingDB("consultoria_financeira");
 
+db.consultorias.createIndex(
+  { descricao: "text" },
+  { default_language: "portuguese" }
+);
+
+db.clientes.createIndex({ consultor_id: 1 });
+db.investimentos.createIndex({ cliente_id: 1 });
+
+print("Índices criados com sucesso.");
